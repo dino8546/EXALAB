@@ -11,7 +11,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            /* Tentei deixar o caminho da imagem o mais simples possível */
             background: url('fundo.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: sans-serif;
@@ -23,24 +24,32 @@
             text-align: center;
         }
         .botao img {
-            width: 160px; /* Ajuste aqui o tamanho do botão */
+            width: 160px; 
             cursor: pointer;
             transition: 0.3s;
+            border: none;
+            display: block;
         }
         .botao img:hover {
-            transform: scale(1.1); /* Aumenta um pouco quando passa o mouse */
+            transform: scale(1.1);
+        }
+        /* Remove qualquer contorno azul que o navegador coloca em links com imagem */
+        a {
+            text-decoration: none;
+            outline: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Substitua o link abaixo pelo seu link real do Telegram -->
-        <a href="https://t.me/SEU_USUARIO" target="_blank" class="botao">
+        <!-- TELEGRAM: HexaLab01 -->
+        <a href="https://t.me/HexaLab01" target="_blank" class="botao">
             <img src="btn-telegram.jpg" alt="Telegram">
         </a>
 
-        <!-- Substitua o link abaixo pelo seu link real do Signal -->
-        <a href="https://signal.me/#p/SEU_NUMERO" target="_blank" class="botao">
+        <!-- SIGNAL: HexaLab.01 -->
+        <!-- Nota: No Signal, o link de username usa o formato #eu/ -->
+        <a href="https://signal.me/#eu/HexaLab.01" target="_blank" class="botao">
             <img src="btn-signal.jpg" alt="Signal">
         </a>
     </div>
