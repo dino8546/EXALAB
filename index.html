@@ -12,31 +12,40 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* Tentei deixar o caminho da imagem o mais simples possível */
             background: url('fundo.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: sans-serif;
+            /* Impede que o usuário selecione qualquer texto acidentalmente */
+            user-select: none;
+            -webkit-user-select: none;
         }
         .container {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 8px; /* Espaço reduzido entre os botões */
             text-align: center;
         }
         .botao img {
-            width: 175px; 
+            width: 178px; 
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
             border: none;
             display: block;
+
+            /* --- NOVO: ISSO IMPEDE O BOTÃO DE MEXER/ARRASTAR --- */
+            -webkit-user-drag: none; /* Para Chrome, Safari e Edge */
+            user-drag: none;         /* Padrão futuro */
+            /* -------------------------------------------------- */
         }
         .botao img:hover {
-            transform: scale(1.1);
+            /* Diminuí um pouco o efeito de aumento para ficar mais sutil */
+            transform: scale(1.03); 
         }
-        /* Remove qualquer contorno azul que o navegador coloca em links com imagem */
         a {
             text-decoration: none;
             outline: none;
+            /* Garante que o link em si não seja arrastável no Firefox */
+            -moz-user-select: none;
         }
     </style>
 </head>
@@ -48,7 +57,6 @@
         </a>
 
         <!-- SIGNAL: HexaLab.01 -->
-        <!-- Nota: No Signal, o link de username usa o formato #eu/ -->
         <a href="https://signal.me/#eu/HexaLab.01" target="_blank" class="botao">
             <img src="btn-signal.jpg" alt="Signal">
         </a>
