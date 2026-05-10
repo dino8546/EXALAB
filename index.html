@@ -15,51 +15,68 @@
             background: url('fundo.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: sans-serif;
-            /* Impede que o usuário selecione qualquer texto acidentalmente */
+            /* Impede seleção de texto e scroll acidental */
             user-select: none;
             -webkit-user-select: none;
+            overflow: hidden; 
         }
+
         .container {
             display: flex;
             flex-direction: column;
-            gap: 8px; /* Espaço reduzido entre os botões */
+            gap: 8px;
             text-align: center;
         }
+
         .botao img {
-            width: 178px; 
+            width: 160px; 
             cursor: pointer;
             transition: 0.2s;
             border: none;
             display: block;
 
-            /* --- NOVO: ISSO IMPEDE O BOTÃO DE MEXER/ARRASTAR --- */
-            -webkit-user-drag: none; /* Para Chrome, Safari e Edge */
-            user-drag: none;         /* Padrão futuro */
-            /* -------------------------------------------------- */
+            /* BLOQUEIO TOTAL DE MOVIMENTO */
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+
+            /* IMPEDE MENU DE "SALVAR IMAGEM" NO CELULAR */
+            -webkit-touch-callout: none; 
+            pointer-events: auto; /* Garante que o clique ainda funcione */
         }
+
         .botao img:hover {
-            /* Diminuí um pouco o efeito de aumento para ficar mais sutil */
             transform: scale(1.03); 
         }
+
         a {
             text-decoration: none;
             outline: none;
-            /* Garante que o link em si não seja arrastável no Firefox */
-            -moz-user-select: none;
+            /* Impede que o link mostre aquela caixa cinza ao clicar no iOS */
+            -webkit-tap-highlight-color: transparent;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- TELEGRAM: HexaLab01 -->
         <a href="https://t.me/HexaLab01" target="_blank" class="botao">
             <img src="btn-telegram.jpg" alt="Telegram">
         </a>
 
-        <!-- SIGNAL: HexaLab.01 -->
         <a href="https://signal.me/#eu/HexaLab.01" target="_blank" class="botao">
             <img src="btn-signal.jpg" alt="Signal">
         </a>
     </div>
+
+    <script>
+        // Bloqueio extra via JavaScript para garantir que o clique direito 
+        // ou o arrastar não funcionem de jeito nenhum
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.querySelectorAll('img').forEach(img => {
+            img.onmousedown = (e) => e.preventDefault();
+        });
+    </script>
 </body>
 </html>
