@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Contatos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('fundo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+        .botao img {
+            width: 280px; /* Ajuste aqui o tamanho do botão */
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .botao img:hover {
+            transform: scale(1.1); /* Aumenta um pouco quando passa o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Substitua o link abaixo pelo seu link real do Telegram -->
+        <a href="https://t.me/SEU_USUARIO" target="_blank" class="botao">
+            <img src="btn-telegram.jpg" alt="Telegram">
+        </a>
+
+        <!-- Substitua o link abaixo pelo seu link real do Signal -->
+        <a href="https://signal.me/#p/SEU_NUMERO" target="_blank" class="botao">
+            <img src="btn-signal.jpg" alt="Signal">
+        </a>
+    </div>
+</body>
+</html>
